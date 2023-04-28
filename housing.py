@@ -21,7 +21,10 @@ from sklearn.utils import shuffle
 from sklearn.feature_selection import RFE
 from sklearn.model_selection import cross_val_score
 
-
+#input threshold
+print('Enter correlation value(from 0 to 1):')
+threshold = float(input())
+print('threshold,', threshold)
 ####################################################load data####################################################
 
 
