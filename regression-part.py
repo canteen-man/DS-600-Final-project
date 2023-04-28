@@ -81,18 +81,15 @@ results_df = append_results("PCA Lasso Regression",  Lasso(), results_df, y_test
 
 
 
-#############################################ridge regression#########################################
-from sklearn.linear_model import Ridge
+from sklearn.linear_model import ElasticNet
 
-model = Ridge(normalize=True)
-#####################################original ridge regression#########################################
+model = ElasticNet()
+#####################################ElasticNet regression#########################################
 model.fit(X_train, y_train)
-
 pred = model.predict(X_test)
-results_df = append_results("Original Ridge Regression",  Ridge(), results_df, y_test, pred)
-#####################################PCA ridge regression#########################################
+results_df = append_results("ElasticNet Regression",  ElasticNet(), results_df, y_test, pred)
+#####################################PCA ElasticNet regression#########################################
 model.fit(X_pca_train, y_train)
 pred = model.predict(X_pca_test)
-results_df = append_results("PCA Ridge Regression",  Ridge(), results_df, y_test, pred)
-
+results_df = append_results("PCA ElasticNet Regression",  Ridge(), results_df, y_test, pred)
 results_df
