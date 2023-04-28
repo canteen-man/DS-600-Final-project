@@ -81,18 +81,18 @@ results_df = append_results("PCA Lasso Regression",  Lasso(), results_df, y_test
 
 
 
-#############################################robust regression#########################################
-from sklearn.linear_model import LinearRegression
+#############################################ridge regression#########################################
+from sklearn.linear_model import Ridge
 
-model = LinearRegression(normalize=True)
-#####################################original robust regression#########################################
+model = Ridge(normalize=True)
+#####################################original ridge regression#########################################
 model.fit(X_train, y_train)
 
 pred = model.predict(X_test)
-results_df = append_results("Original line Regression",  LinearRegression(), results_df, y_test, pred)
-#####################################PCA robust regression#########################################
+results_df = append_results("Original Ridge Regression",  Ridge(), results_df, y_test, pred)
+#####################################PCA ridge regression#########################################
 model.fit(X_pca_train, y_train)
 pred = model.predict(X_pca_test)
-results_df = append_results("PCA line Regression",  LinearRegression(), results_df, y_test, pred)
+results_df = append_results("PCA Ridge Regression",  Ridge(), results_df, y_test, pred)
 
 results_df
